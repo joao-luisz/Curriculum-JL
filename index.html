@@ -3,624 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Luis Fleite - Analista de Dados</title>
+    <title>Currículo - João Luis Fleite</title>
     <style>
+        :root {
+            /* Paleta de Cores Modernizada */
+            --primary-text: #1a2a3a; /* Slate Blue profundo para texto */
+            --secondary-text: #546e7a; /* Cinza azulado para detalhes */
+            --accent-color: #007bff; /* Azul vibrante tech para destaques */
+            --bg-body: #f4f7f6;
+            --bg-container: #ffffff;
+            --bg-skills: #f8f9fa; /* Fundo sutil para skills */
+            --section-spacing: 1.8rem;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.4;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background: var(--bg-body);
+            padding: 2rem 1rem;
+            font-size: 10pt; /* Tamanho base otimizado para A4 */
         }
-        
-        .container {
+
+        .cv-container {
             max-width: 21cm;
-            background: white;
             margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            background: var(--bg-container);
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
-        
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
+
+        /* Links */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.5;
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
         }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
+
+        /* Header */
+        header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
         }
-        
-        .name {
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-text);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
-        
-        .title {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            color: #ecf0f1;
-            font-weight: 300;
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
         }
-        
+
         .contact-info {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 25px;
+            gap: 1rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--secondary-text);
         }
-        
-        .contact-item {
+
+        .contact-info span {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95em;
+            gap: 0.3rem;
         }
-        
-        .contact-icon {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
+
+        /* Sections */
+        section {
+            margin-bottom: var(--section-spacing);
         }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
-        }
-        
-        .sidebar {
-            background: #f8f9fa;
-            padding: 40px 30px;
-            border-right: 3px solid #e9ecef;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 35px;
-        }
-        
-        .section-title {
-            font-size: 1.4em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #3498db;
-            font-weight: 600;
+
+        h2 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .sidebar .section-title {
-            font-size: 1.2em;
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-        }
-        
-        .summary {
-            background: #ecf0f1;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 35px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .summary p {
-            margin-bottom: 15px;
-            text-align: justify;
-            line-height: 1.6;
-        }
-        
-        .highlight-box {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 20px;
-            margin: 15px 0;
-        }
-        
-        .metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .metric {
-            text-align: center;
-            padding: 15px;
-            background: white;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .metric-number {
-            font-size: 1.8em;
             font-weight: 700;
-            color: #3498db;
-            display: block;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
         }
         
-        .metric-label {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 5px;
+        /* Opcional: pequena linha ao lado do H2 */
+        h2::after {
+            content: "";
+            flex: 1;
+            margin-left: 1rem;
+            height: 1px;
+            background: #eee;
         }
-        
+
+        /* Professional Summary */
+        .summary-text {
+            text-align: left;
+            color: var(--primary-text);
+        }
+
+        /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
         }
-        
+
         .skill-category {
-            background: white;
-            padding: 15px;
+            background: var(--bg-skills);
+            padding: 1rem;
             border-radius: 6px;
-            border: 1px solid #e9ecef;
+            border-left: 3px solid var(--accent-color);
         }
-        
-        .skill-category h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            font-weight: 600;
+
+        .skill-category strong {
+            color: var(--primary-text);
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
         }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+
+        /* Experience & Projects */
+        .entry {
+            margin-bottom: 1.5rem;
         }
-        
-        .skill-tag {
-            background: #3498db;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-        
-        .experience-item {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-        
-        .job-header {
+
+        .entry-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
-            gap: 10px;
         }
-        
-        .job-title {
-            color: #2c3e50;
-            font-size: 1.1em;
+
+        .entry-title-group {
+            flex: 1;
+            min-width: 60%;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-text);
+        }
+
+        .sep {
+            margin: 0 0.3rem;
+            color: var(--accent-color);
+        }
+
+        .entry-company {
             font-weight: 600;
-            margin-bottom: 4px;
+            color: var(--accent-color);
         }
-        
-        .company {
-            color: #3498db;
+
+        .entry-date {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
             font-weight: 500;
-            margin-bottom: 4px;
+            white-space: nowrap;
         }
-        
-        .period {
-            color: #666;
-            font-size: 0.9em;
-            font-style: italic;
-            text-align: right;
+
+        /* List Items */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
         }
-        
-        .location {
-            color: #666;
-            font-size: 0.85em;
-            margin-bottom: 12px;
-        }
-        
-        .achievements {
-            margin-top: 15px;
-        }
-        
-        .achievements h5 {
-            color: #27ae60;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .achievements ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .achievements li {
+
+        li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 6px;
-            color: #555;
-            font-size: 0.9em;
+            padding-left: 1.5rem;
+            margin-bottom: 0.4rem;
+            text-align: left; /* Alinhamento à esquerda para melhor leitura */
+            color: var(--primary-text);
         }
-        
-        .achievements li::before {
-            content: '▶';
+
+        li::before {
+            content: "•";
             position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-size: 0.8em;
+            left: 0.2rem;
+            top: -0.1rem; /* Ajuste fino da posição do bullet */
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
-        
-        .education-item {
-            margin-bottom: 20px;
-        }
-        
-        .degree {
-            color: #2c3e50;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .school {
-            color: #3498db;
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-        
-        .education-period {
-            color: #666;
-            font-size: 0.9em;
-            font-style: italic;
-        }
-        
+
+        /* Print Optimization */
         @media print {
-            body { 
-                background: white; 
-                padding: 0; 
+            body {
+                background: none;
+                padding: 0;
+                font-size: 9.5pt; /* Ligeira redução para impressão */
             }
-            .container { 
-                box-shadow: none; 
-                max-width: 100%;
+            .cv-container {
+                box-shadow: none;
+                padding: 2.5rem;
+                margin: 0;
+                width: 100%;
+                max-width: none;
+                border-radius: 0;
             }
-            .section { 
-                margin-bottom: 25px; 
+            a {
+                text-decoration: none;
+                color: var(--primary-text);
             }
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
+            /* Evita que links mostrem a URL na impressão */
+            a[href^="http"]:after {
+                content: ""; 
             }
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            .job-header {
-                flex-direction: column;
-            }
-            .period {
-                text-align: left;
-            }
-            .metrics {
-                grid-template-columns: 1fr;
+            .skill-category {
+                border: 1px solid #eee; /* Borda sutil para impressão em P&B */
+                background: none !important;
+                -webkit-print-color-adjust: exact; 
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-content">
-                <h1 class="name">JOÃO LUIS FLEITE</h1>
-                <p class="title">Analista de Dados | Especialista em BI & Automação</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24">
-                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
-                        </svg>
-                        (88) 99780-9900
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24">
-                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
-                        </svg>
-                        azjoaoluis7@gmail.com
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24">
-                            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19S5.19 5.95 5.19 6.88A1.69 1.69 0 0 0 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
-                        </svg>
-                        linkedin.com/in/joaolfleite
-                    </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24">
-                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                        </svg>
-                        Uruburetama, CE
-                    </div>
-                </div>
+    <div class="cv-container">
+        <header>
+            <h1>João Luis Fleite</h1>
+            <div class="subtitle">Analista de Dados | Python, SQL & Power BI | Background em Engenharia de Software</div>
+            <div class="contact-info">
+                <span>📍 Fortaleza, CE (Disponível para Outras Regiões)</span>
+                <span>📧 <a href="mailto:azjoaoluis7@gmail.com">azjoaoluis7@gmail.com</a></span>
+                <span>📱 (88) 99780-9900</span>
+                <span>🔗 <a href="https://linkedin.com/in/joaolfleite" target="_blank">linkedin.com/in/joaolfleite</a></span>
+                <span>💻 <a href="https://github.com/joao-luisz" target="_blank">github.com/joao-luisz</a></span>
             </div>
         </header>
 
-        <div class="main-content">
-            <aside class="sidebar">
-                <section class="section">
-                    <h2 class="section-title">Competências Técnicas</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Análise de Dados</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python Avançado</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Power BI</span>
-                                <span class="skill-tag">Excel Avançado</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Bancos de Dados</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">MySQL</span>
-                                <span class="skill-tag">PostgreSQL</span>
-                                <span class="skill-tag">ETL</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Machine Learning & Stats</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Scikit-learn</span>
-                                <span class="skill-tag">Pandas</span>
-                                <span class="skill-tag">NumPy</span>
-                                <span class="skill-tag">Matplotlib</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Estatística & Matemática</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Análise Estatística</span>
-                                <span class="skill-tag">Modelagem Preditiva</span>
-                                <span class="skill-tag">Regressão</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h4>Data Science & Automação</h4>
-                            <div class="skill-tags">
-                                <span class="skill-tag">ETL/ELT</span>
-                                <span class="skill-tag">Data Mining</span>
-                                <span class="skill-tag">APIs</span>
-                                <span class="skill-tag">RPA</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+        <section>
+            <h2>Resumo Profissional</h2>
+            <p class="summary-text">
+                Analista de Dados com background em Engenharia de Software e forte viés analítico. Especialista em transformar dados brutos em insights acionáveis utilizando <strong>Python (Pandas, Scikit-learn), SQL e Power BI</strong>. Combino rigor estatístico com capacidade técnica de automação para otimizar processos e suportar tomadas de decisão estratégicas. Histórico comprovado de redução de tempo de processamento em 50% e aumento de precisão de dados em ambientes governamentais e corporativos.
+            </p>
+        </section>
 
-                <section class="section">
-                    <h2 class="section-title">Resultados</h2>
-                    <div class="metrics">
-                        <div class="metric">
-                            <span class="metric-number">50%</span>
-                            <div class="metric-label">Redução tempo processamento</div>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-number">20%</span>
-                            <div class="metric-label">Aumento satisfação cliente</div>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-number">25%</span>
-                            <div class="metric-label">Redução chamados via automação</div>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-number">100%</span>
-                            <div class="metric-label">Precisão dados</div>
-                        </div>
-                    </div>
-                </section>
+        <section>
+            <h2>Competências Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Análise de Dados & BI</strong>
+                    Python (Pandas, NumPy), SQL Avançado, Power BI (DAX), Excel Avançado, Estatística Descritiva.
+                </div>
+                <div class="skill-category">
+                    <strong>Engenharia & Automação</strong>
+                    ETL/ELT, Web Scraping, Automação de Processos (RPA), Git/GitHub, CI/CD.
+                </div>
+                <div class="skill-category">
+                    <strong>Bancos de Dados & Cloud</strong>
+                    PostgreSQL, MySQL, SQLite, Modelagem de Dados, AWS (Conceitos).
+                </div>
+            </div>
+        </section>
 
-                <section class="section">
-                    <h2 class="section-title">Formação</h2>
-                    <div class="education-item">
-                        <div class="degree">Análise e Desenvolvimento de Sistemas</div>
-                        <div class="school">Universidade Federal do Ceará (UFC)</div>
-                        <div class="education-period">2021 - 2025</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">Técnico em Informática</div>
-                        <div class="school">EEEP Maria Auday Vasconcelos</div>
-                        <div class="education-period">2018 - 2020</div>
-                    </div>
-                </section>
-            </aside>
+        <section>
+            <h2>Experiência Profissional</h2>
 
-            <main class="content">
-                <section class="section">
-                    <div class="summary">
-                        <p><strong>Especialista em Análise de Dados & Business Intelligence</strong> recém-formado pela UFC com <strong>4+ anos de experiência</strong> transformando dados em insights acionáveis para tomada de decisões estratégicas.</p>
-                        
-                        <p>Profissional com sólida formação em <strong>estatística e matemática aplicada</strong>, expertise avançada em <strong>Python (Pandas, NumPy, Scikit-learn), SQL, Power BI</strong> e machine learning. Especialista em análise de dados avançada, modelagem preditiva e automação de processos com histórico comprovado de otimização e geração de valor.</p>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Analista de Dados & Qualidade (Cadastro Único)</span> <span class="sep">|</span> <span class="entry-company">Prefeitura de Uruburetama</span>
                     </div>
-                </section>
+                    <span class="entry-date">Ago 2025 – Presente</span>
+                </div>
+                <ul>
+                    <li>Liderou a higienização e análise de dados de <strong>50+ cadastros socioeconômicos</strong> utilizando Python, garantindo <strong>100% de integridade</strong> para a base do governo federal.</li>
+                    <li>Desenvolveu modelos preditivos simples para segmentação demográfica, permitindo uma alocação de recursos <strong>20% mais eficiente</strong> para famílias em vulnerabilidade.</li>
+                    <li>Automatizou a validação de dados de entrada, reduzindo o tempo de processamento manual e eliminando erros de digitação recorrentes.</li>
+                </ul>
+            </div>
 
-                <section class="section">
-                    <h2 class="section-title">Experiência Profissional</h2>
-                    
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Entrevistador do Cadastro Único</div>
-                                <div class="company">Prefeitura Municipal de Uruburetama</div>
-                                <div class="location">Uruburetama, CE</div>
-                            </div>
-                            <div class="period">Ago 2025 - Presente</div>
-                        </div>
-                        
-                        <p>Especialista em coleta, validação e análise estatística avançada de dados socioeconômicos com aplicação de técnicas de machine learning para identificação de padrões demográficos.</p>
-                        
-                        <div class="achievements">
-                            <h5>Principais Realizações:</h5>
-                            <ul>
-                                <li>Análise estatística de 50+ cadastros com modelagem preditiva em Python</li>
-                                <li>Implementação de algoritmos de classificação para segmentação demográfica</li>
-                                <li>Desenvolvimento de insights sobre perfis socioeconômicos regionais</li>
-                                <li>100% de precisão na validação através de técnicas de data quality</li>
-                            </ul>
-                        </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Analista de Dados Administrativos</span> <span class="sep">|</span> <span class="entry-company">Escola João de Paula Filho</span>
                     </div>
+                    <span class="entry-date">Jan 2025 – Jul 2025</span>
+                </div>
+                <ul>
+                    <li>Implementou pipeline de ETL para digitalização de arquivos físicos, reduzindo o tempo de busca de documentos em <strong>85%</strong>.</li>
+                    <li>Realizou análise exploratória de dados (EDA) de performance escolar de 300+ alunos, identificando gargalos de aprendizado e sugerindo intervenções pedagógicas baseadas em dados.</li>
+                    <li>Criou dashboards de acompanhamento de frequência e notas, facilitando a gestão escolar na tomada de decisão.</li>
+                </ul>
+            </div>
 
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Agente Administrativo</div>
-                                <div class="company">Escola João de Paula Filho</div>
-                                <div class="location">Uruburetama, CE</div>
-                            </div>
-                            <div class="period">Jan - Jul 2025</div>
-                        </div>
-                        
-                        <p>Analista de dados especializado em gestão de grandes volumes de dados educacionais com aplicação de técnicas estatísticas para análise de performance e otimização de processos administrativos.</p>
-                        
-                        <div class="achievements">
-                            <h5>Principais Realizações:</h5>
-                            <ul>
-                                <li>Análise exploratória de dados de 300+ alunos com Python/Pandas</li>
-                                <li>Implementação de ETL automatizado para sistema de arquivamento digital</li>
-                                <li>Aplicação de estatística descritiva para identificação de gargalos operacionais</li>
-                                <li>15% de redução no tempo de busca através de análise de métricas</li>
-                            </ul>
-                        </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Instrutor Técnico de TI</span> <span class="sep">|</span> <span class="entry-company">EEMTI Matilde Rodrigues Vasconcelos</span>
                     </div>
+                    <span class="entry-date">Out 2023 – Set 2024</span>
+                </div>
+                <ul>
+                    <li>Capacitou <strong>80+ alunos</strong> em fundamentos de TI e Análise de Dados, alcançando <strong>100% de aprovação</strong> em certificações técnicas.</li>
+                    <li>Desenvolveu metodologia de ensino baseada em projetos práticos e feedback de dados (NPS), aumentando o engajamento dos alunos em 30%.</li>
+                </ul>
+            </div>
 
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Instrutor Técnico de TI</div>
-                                <div class="company">EEMTI Matilde Rodrigues Vasconcelos</div>
-                                <div class="location">Uruburetama, CE</div>
-                            </div>
-                            <div class="period">Out 2023 - Set 2024</div>
-                        </div>
-                        
-                        <p>Monitor e instrutor técnico especializado em capacitação com metodologias baseadas em dados e análise de performance educacional.</p>
-                        
-                        <div class="achievements">
-                            <h5>Principais Realizações:</h5>
-                            <ul>
-                                <li>Capacitação de 80+ alunos em Google IT Support e AWS</li>
-                                <li>100% de aprovação em certificações profissionais</li>
-                                <li>Criação de dashboards educacionais para análise de desempenho</li>
-                                <li>Sistema de acompanhamento baseado em métricas</li>
-                            </ul>
-                        </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Desenvolvedor Full Stack</span> <span class="sep">|</span> <span class="entry-company">Nobre Soluções de Software</span>
                     </div>
+                    <span class="entry-date">Mar 2022 – Dez 2022</span>
+                </div>
+                <ul>
+                    <li>Desenvolveu interfaces de visualização de dados em React, facilitando a leitura de métricas críticas pelos gestores.</li>
+                    <li>Criou pipelines de automação (CI/CD) e scripts de teste que aumentaram a confiabilidade dos dados do sistema em <strong>20%</strong>.</li>
+                    <li>Atuou na modelagem de banco de dados SQL, garantindo integridade referencial e performance em consultas complexas.</li>
+                </ul>
+            </div>
+        </section>
 
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Desenvolvedor Full Stack</div>
-                                <div class="company">Nobre Soluções de Software</div>
-                                <div class="location">Fortaleza, CE</div>
-                            </div>
-                            <div class="period">Mar - Dez 2022</div>
-                        </div>
-                        
-                        <p>Desenvolvedor especializado em aplicações web com foco em qualidade e integridade de dados para análises.</p>
-                        
-                        <div class="achievements">
-                            <h5>Principais Realizações:</h5>
-                            <ul>
-                                <li>Automação de pipelines CI/CD: 50% redução tempo de deploy</li>
-                                <li>Criação de 50+ testes automatizados (Cypress)</li>
-                                <li>Aumento da cobertura de testes de 45% para 65%</li>
-                                <li>Desenvolvimento de interfaces React para visualização de dados</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section>
+            <h2>Projetos em Destaque</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Análise de Eficácia Vacinal (COVID-19)</span>
+                    <span class="entry-date" style="color: var(--accent-color)">SQL, Python, Power BI</span>
+                </div>
+                <ul>
+                    <li><strong>Problema de Negócio:</strong> Identificar a correlação entre taxas de vacinação e redução de casos graves por faixa etária.</li>
+                    <li><strong>Solução:</strong> Processou 5GB+ de dados do OpenDataSUS utilizando SQL (Window Functions, CTEs).</li>
+                    <li><strong>Resultado:</strong> Identificou correlação de -0.85 em idosos e gaps regionais de distribuição, demonstrando capacidade de extrair insights de grandes volumes de dados públicos.</li>
+                </ul>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">SIAS - Sistema de Gestão Social</span>
+                    <span class="entry-date" style="color: var(--accent-color)">React, TypeScript, Supabase (SQL)</span>
+                </div>
+                <ul>
+                    <li>Desenvolveu arquitetura completa de um sistema de gestão, focando na integridade e segurança dos dados de beneficiários.</li>
+                    <li>Implementou validações rigorosas no frontend e backend para garantir qualidade dos dados na entrada (Data Quality).</li>
+                </ul>
+            </div>
+        </section>
 
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Técnico de Suporte em TI</div>
-                                <div class="company">I9 - Inove Informática</div>
-                                <div class="location">Itapipoca, CE</div>
-                            </div>
-                            <div class="period">Dez 2020 - Dez 2021</div>
-                        </div>
-                        
-                        <p>Especialista em atendimento técnico com foco em análise de dados de chamados e otimização baseada em métricas.</p>
-                        
-                        <div class="achievements">
-                            <h5>Principais Realizações:</h5>
-                            <ul>
-                                <li>Análise de padrões em dados de chamados para melhorias</li>
-                                <li>20% aumento na satisfação do cliente via otimização</li>
-                                <li>10% melhoria no tempo médio de resposta</li>
-                            </ul>
-                        </div>
+        <section>
+            <h2>Formação Acadêmica</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Análise e Desenvolvimento de Sistemas</span> <span class="sep">|</span> <span class="entry-company">Universidade Federal do Ceará (UFC)</span>
                     </div>
-                </section>
-            </main>
-        </div>
+                    <span class="entry-date">Conclusão: 2025</span>
+                </div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title-group">
+                        <span class="entry-title">Técnico em Informática</span> <span class="sep">|</span> <span class="entry-company">EEEP Maria Auday Vasconcelos</span>
+                    </div>
+                    <span class="entry-date">2018 – 2020</span>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <script>
-        // Print optimization
-        window.addEventListener('beforeprint', function() {
-            document.body.style.background = 'white';
-        });
-        
-        window.addEventListener('afterprint', function() {
-            document.body.style.background = '#f5f5f5';
-        });
-        
-        // Auto-adjust for better print layout
-        function optimizePrint() {
-            const content = document.querySelector('.content');
-            const sidebar = document.querySelector('.sidebar');
-            
-            if (window.matchMedia('print').matches) {
-                content.style.fontSize = '13px';
-                sidebar.style.fontSize = '12px';
-            }
-        }
-        
-        window.addEventListener('beforeprint', optimizePrint);
-    </script>
 </body>
 </html>
